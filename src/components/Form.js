@@ -1,22 +1,31 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import colors from '../utils/colors';
 
 export default function Form() {
   return (
     <View style={styles.viewForm}>
       <View style={styles.viewInputs}>
-        <TextInput 
+        <TextInput
           placeholder="Cantidad a pedir"
-          keyboardType="numeric" 
+          keyboardType="numeric"
           style={styles.input}
         />
-        <TextInput 
-          placeholder="Interes %" 
-          keyboardType="numeric" 
+        <TextInput
+          placeholder="Interes %"
+          keyboardType="numeric"
           style={[styles.input, styles.inputPercentage]}
         />
       </View>
+      <RNPickerSelect
+        onValueChange={(value) => console.log(value)}
+        items={[
+          {label: 'Football', value: 'football'},
+          {label: 'Baseball', value: 'baseball'},
+          {label: 'Hockey', value: 'hockey'},
+        ]}
+      />
     </View>
   );
 }

@@ -1,7 +1,9 @@
 import React from 'react';
-import {StyleSheet, View, Text, SafeAreaView, StatusBar} from 'react-native';
+import {StyleSheet, View, Text, SafeAreaView, StatusBar, YellowBox} from 'react-native';
 import Form from './src/components/Form';
 import colors from './src/utils/colors';
+
+YellowBox.ignoreWarnings(['Picker has been stracted']);
 
 export default function App() {
   return (
