@@ -1,18 +1,40 @@
-import React from 'react';
-import {StyleSheet, View, Text, SafeAreaView, StatusBar, YellowBox} from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  StatusBar,
+  YellowBox,
+  Button,
+} from 'react-native';
 import Form from './src/components/Form';
 import colors from './src/utils/colors';
 
 YellowBox.ignoreWarnings(['Picker has been stracted']);
 
 export default function App() {
+  const [capital, setCapital] = useState(null);
+  const [interest, setInterest] = useState(null);
+  const [months, setMonths] = useState(null);
+
+  const onSubmit = () => {
+    console.log('capital ->', capital);
+    console.log('interest ->', interest);
+    console.log('months ->', months);
+  };
+
   return (
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.SafeArea}>
         <View style={styles.background} />
         <Text style={styles.titleApp}>Cotizador de Prestamos</Text>
-        <Form />
+        <Form
+          setCapital={setCapital}
+          setInterest={setInterest}
+          setMonths={setMonths}
+        />
       </SafeAreaView>
 
       <View>
@@ -20,6 +42,7 @@ export default function App() {
       </View>
 
       <View>
+        <Button title="Enviar" onPress={onSubmit} />
         <Text>Footer</Text>
       </View>
     </>
