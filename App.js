@@ -9,6 +9,7 @@ import {
   Button,
 } from 'react-native';
 import Form from './src/components/Form';
+import Footer from './src/components/Footer';
 import colors from './src/utils/colors';
 
 YellowBox.ignoreWarnings(['Picker has been stracted']);
@@ -18,7 +19,7 @@ export default function App() {
   const [interest, setInterest] = useState(null);
   const [months, setMonths] = useState(null);
 
-  const onSubmit = () => {
+  const calculate = () => {
     console.log('capital ->', capital);
     console.log('interest ->', interest);
     console.log('months ->', months);
@@ -41,10 +42,7 @@ export default function App() {
         <Text>Resultado</Text>
       </View>
 
-      <View>
-        <Button title="Enviar" onPress={onSubmit} />
-        <Text>Footer</Text>
-      </View>
+      <Footer calculate={calculate} />
     </>
   );
 }
